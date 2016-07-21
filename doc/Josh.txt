@@ -1,0 +1,20 @@
+*Josh.txt* Plugin for correcting typing mistakes
+
+< Hot Key >
+F1: Help
+F2: vim tab left
+F3: vim tab right
+F4: tmux tab left
+F5: tmux tab right
+F6: CMake
+F7: :make
+F8: :Gstatus
+F9: gen tags
+F10: class list
+F11: project list
+F12: Nerd Tree list
+
+F6: :Gstatus
+    cc :Gcommit
+    dd :GDiff
+    -  : add or remove file
