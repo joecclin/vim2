@@ -23,7 +23,8 @@ git config --global alias.st status
 
 # add symbolic link
 cd ..
-ln -s ./.vimrc ../.vimrc
-ln -s ./.vimproject_mappings ../.vimproject_mappings
-ln -s ./.gitignore_global ../.gitignore_global
+ln -s ~/vim2 ~/.vim
+ln -s ~/.vim/.vimrc ../.vimrc
+ln -s ~/.vim/.vimproject_mappings ../.vimproject_mappings
+ln -s ~/.vim/.gitignore_global ../.gitignore_global
 
