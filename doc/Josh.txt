@@ -18,3 +18,8 @@ F6: :Gstatus
     cc :Gcommit
     dd :GDiff
     -  : add or remove file
+
+Python
+<C-k> pydiction
+      if it block supertab, try to modify the hotkey int the
+      python_pydiction.vim

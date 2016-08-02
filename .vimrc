@@ -56,13 +56,13 @@ filetype plugin indent on     " required
 " Put your stuff after this line
 
 Plugin 'The-NERD-tree'
+Plugin 'Pydiction'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'https://github.com/vim-scripts/fugitive.vim.git'
+Plugin 'https://github.com/tsaleh/vim-supertab.git'
 Plugin 'snipMate'
-Plugin 'supertab'
 Plugin 'EasyMotion'
 Plugin 'taglist.vim'
-Plugin 'Pydiction'
 Plugin 'ctrlp.vim'
 
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
@@ -71,8 +71,8 @@ let g:EasyMotion_leader_key = ','
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
 "imap <C-J> <Plug>snipMateNextOrTrigger
 "smap <C-J> <Plug>snipMateNextOrTrigger
-ino <c-j> <c-r>=TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+"ino <c-j> <c-r>=TriggerSnippet()<cr>
+"snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 " set OS options
 if has("win32")
@@ -163,10 +163,6 @@ else
 
         " fix the ms ^M issue
         :set ff=unix
-
-        "set super tab
-        let g:SuperTabRetainCompletionType=2
-        let g:SuperTabDefaultCompletionType="<C-P>"
 
         " set omnifunc for c and cpp
         autocmd FileType c set omnifunc=ccomplete#Complete
