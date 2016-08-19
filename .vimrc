@@ -56,7 +56,7 @@ filetype plugin indent on     " required
 " Put your stuff after this line
 
 Plugin 'The-NERD-tree'
-Plugin 'Pydiction'
+"Plugin 'Pydiction'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'https://github.com/vim-scripts/fugitive.vim.git'
 Plugin 'https://github.com/tsaleh/vim-supertab.git'
@@ -421,3 +421,4 @@ set clipboard=unnamed
 "set foldmethod=syntax 
 "set foldcolumn=0 
 "nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
+let NERDTreeDirArrows = 0
