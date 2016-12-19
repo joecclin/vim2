@@ -64,6 +64,7 @@ Plugin 'snipMate'
 Plugin 'EasyMotion'
 Plugin 'taglist.vim'
 Plugin 'ctrlp.vim'
+Plugin 'cscope.vim'
 
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
 let g:EasyMotion_leader_key = ','
@@ -295,9 +296,9 @@ else
         autocmd BufRead *.py nmap <F7> :!python %<CR>
         autocmd BufRead *.sh nmap <F7> :w !sh %<CR>
         autocmd FileType cpp nmap <F7> :make<CR>
+        autocmd FileType c nmap <F7> :make<CR>
 
-        
-        :nmap <F8> :Gstatus<CR>
+        :nmap <F11> :Gstatus<CR>
     endif
 endif
 
@@ -377,7 +378,7 @@ set wildmenu
 " set hotkey
 "nnoremap <F10> <ESC>:Project<cr>
 nnoremap <F10> <ESC>:TlistToggle<cr><C-W><C-W>
-nmap <silent> <F11> <Plug>ToggleProject
+"nmap <silent> <F11> <Plug>ToggleProject
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
 :nmap <F3> :tabnext<cr>
 :nmap <F2> :tabprev<cr>
@@ -421,3 +422,20 @@ set clipboard=unnamed
 "set foldmethod=syntax 
 "set foldcolumn=0 
 "nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
+
+" s: Find this C symbol
+nnoremap  <F8>s :call cscope#find('s', expand('<cword>'))<CR>
+" g: Find this definition
+nnoremap  <F8>g :call cscope#find('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+nnoremap  <F8>d :call cscope#find('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+nnoremap  <F8>c :call cscope#find('c', expand('<cword>'))<CR>
+" t: Find this text string
+nnoremap  <F8>t :call cscope#find('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+nnoremap  <F8>e :call cscope#find('e', expand('<cword>'))<CR>
+" f: Find this file
+nnoremap  <F8>f :call cscope#find('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+nnoremap  <F8>i :call cscope#find('i', expand('<cword>'))<CR>
