@@ -422,7 +422,6 @@ set clipboard=unnamed
 "set foldmethod=syntax 
 "set foldcolumn=0 
 "nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
-<<<<<<< HEAD
 
 " s: Find this C symbol
 nnoremap  <F8>s :call cscope#find('s', expand('<cword>'))<CR>
@@ -440,6 +439,4 @@ nnoremap  <F8>e :call cscope#find('e', expand('<cword>'))<CR>
 nnoremap  <F8>f :call cscope#find('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <F8>i :call cscope#find('i', expand('<cword>'))<CR>
-=======
 let NERDTreeDirArrows = 0
->>>>>>> b4bc7aba6d0e83719fad3a9e998fbafebf714620
