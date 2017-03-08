@@ -65,6 +65,9 @@ Plugin 'EasyMotion'
 Plugin 'taglist.vim'
 Plugin 'ctrlp.vim'
 Plugin 'cscope.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
 let g:EasyMotion_leader_key = ','
@@ -440,3 +443,14 @@ nnoremap  <F8>f :call cscope#find('f', expand('<cword>'))<CR>
 " i: Find files #including this file
 nnoremap  <F8>i :call cscope#find('i', expand('<cword>'))<CR>
 let NERDTreeDirArrows = 0
+"let g:indentLine_setColors = 0
+"let g:indentLine_color_term = 239
+"let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+let g:indentLine_color_gui = '#A4E57E'
+
+set guifont=Inconsolata\ for\ Powerline\ 20
+let g:airline_powerline_fonts = 1
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
