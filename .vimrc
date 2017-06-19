@@ -64,7 +64,8 @@ Plugin 'snipMate'
 Plugin 'EasyMotion'
 Plugin 'taglist.vim'
 Plugin 'ctrlp.vim'
-Plugin 'cscope.vim'
+"Plugin 'cscope.vim'
+Plugin 'https://github.com/diabloneo/cscope_maps.vim.git'
 Plugin 'Yggdroot/indentLine'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -301,7 +302,7 @@ else
         autocmd FileType cpp nmap <F7> :make<CR>
         autocmd FileType c nmap <F7> :make<CR>
 
-        :nmap <F11> :Gstatus<CR>
+        :nmap <F11> :Gstatus <CR> :colorscheme industry<CR>
     endif
 endif
 
@@ -320,6 +321,7 @@ endif
 :set hlsearch                       " high light search
 :syntax enable                      " enable high light of language supporting
 :colorscheme desert                 " color scheme -- peachpuff
+":colorscheme ron                    " color scheme -- peachpuff
 :set autoread                       " auto reload
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -454,3 +456,7 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 set t_Co=256
 let g:Powerline_symbols = 'fancy'
+
+if &diff
+    colorscheme industry
+endif
