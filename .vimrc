@@ -1,3 +1,4 @@
+set encoding=utf-8
 " check Vundle install
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
@@ -69,6 +70,9 @@ Plugin 'https://github.com/diabloneo/cscope_maps.vim.git'
 Plugin 'Yggdroot/indentLine'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'  
+Plugin 'buoto/gotests-vim'
 
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
 let g:EasyMotion_leader_key = ','
@@ -295,12 +299,13 @@ else
         "let g:SuperTabDefaultCompletionType="<C-X><C-O>"                  
         "let g:SuperTabMappingTabLiteral="<F8>"            
        
-        :nmap <F6> :CMake<CR>
+        autocmd FileType cpp nmap <F6> :CMake<CR>
         ":nmap <F7> :make<CR>
         autocmd BufRead *.py nmap <F7> :!python %<CR>
         autocmd BufRead *.sh nmap <F7> :w !sh %<CR>
         autocmd FileType cpp nmap <F7> :make<CR>
         autocmd FileType c nmap <F7> :make<CR>
+        autocmd FileType go nmap <F7> :go build<CR>
 
         :nmap <F11> :Gstatus <CR> :colorscheme industry<CR>
     endif
@@ -387,6 +392,9 @@ nnoremap <F10> <ESC>:TlistToggle<cr><C-W><C-W>
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
 :nmap <F3> :tabnext<cr>
 :nmap <F2> :tabprev<cr>
+:map <M-2> :tabprev<cr>
+:map <M-3> :tabnext<cr>
+
 
 "set NERDTree 
 let NERDTreeShowBookmarks=1             " show book mark
@@ -460,3 +468,5 @@ let g:Powerline_symbols = 'fancy'
 if &diff
     colorscheme industry
 endif
+
+command Todo noautocmd vimgrep /TODO\|FIXME/j **.* | cw
