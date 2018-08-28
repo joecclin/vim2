@@ -73,6 +73,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'  
 Plugin 'buoto/gotests-vim'
+Plugin 'dracula/vim'
 
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
 let g:EasyMotion_leader_key = ','
@@ -325,8 +326,9 @@ endif
 :set nowrap                         " not chang the longer line to the second line
 :set hlsearch                       " high light search
 :syntax enable                      " enable high light of language supporting
-:colorscheme desert                 " color scheme -- peachpuff
+":colorscheme desert                 " color scheme -- peachpuff
 ":colorscheme ron                    " color scheme -- peachpuff
+:color dracula
 :set autoread                       " auto reload
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
