@@ -75,7 +75,6 @@ Plugin 'fatih/vim-go'
 Plugin 'buoto/gotests-vim'
 Plugin 'dracula/vim'
 
-nnoremap <F12> <ESC>:NERDTreeToggle<cr>
 let g:EasyMotion_leader_key = ','
 
 let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
@@ -392,11 +391,21 @@ set wildmenu
 nnoremap <F10> <ESC>:TlistToggle<cr><C-W><C-W>
 "nmap <silent> <F11> <Plug>ToggleProject
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
+:map <M-=> <ESC>:NERDTreeToggle<cr>
 :nmap <F3> :tabnext<cr>
 :nmap <F2> :tabprev<cr>
-:map <M-2> :tabprev<cr>
-:map <M-3> :tabnext<cr>
 
+" add new key map
+let mapleader='b'
+:nmap <Leader>- :Gstatus <CR> :colorscheme industry<CR>
+:nmap <Leader>= <ESC>:NERDTreeToggle<cr>
+:nmap <Leader>3 :tabnext<cr>
+:nmap <Leader>2 :tabprev<cr>
+:nmap <Leader>6 :CMake<CR>
+autocmd BufRead *.py nmap <Leader>7 :!python %<CR>
+autocmd BufRead *.sh nmap <Leader>7 :w !sh %<CR>
+autocmd FileType cpp nmap <Leader>7 :make<CR>
+autocmd FileType c nmap <Leader>7 :make<CR>
 
 "set NERDTree 
 let NERDTreeShowBookmarks=1             " show book mark
