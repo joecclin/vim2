@@ -60,10 +60,11 @@ Plugin 'The-NERD-tree'
 "Plugin 'Pydiction'
 Plugin 'vhdirk/vim-cmake'
 Plugin 'https://github.com/vim-scripts/fugitive.vim.git'
-Plugin 'https://github.com/tsaleh/vim-supertab.git'
+"Plugin 'https://github.com/tsaleh/vim-supertab.git'
 Plugin 'snipMate'
 Plugin 'EasyMotion'
 Plugin 'taglist.vim'
+Plugin 'https://github.com/majutsushi/tagbar.git'
 Plugin 'ctrlp.vim'
 "Plugin 'cscope.vim'
 Plugin 'https://github.com/diabloneo/cscope_maps.vim.git'
@@ -72,6 +73,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'  
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'buoto/gotests-vim'
 Plugin 'dracula/vim'
 
@@ -118,7 +120,7 @@ if has("win32")
     " -----------------------------windows offincal setting end -----------
     
     " set the ctags exec
-    let Tlist_Ctags_Cmd='c:\vimruntime\ctags.exe'
+    "let Tlist_Ctags_Cmd='c:\vimruntime\ctags.exe'
 
     "set word size
     set guifont=Consolas:h12
@@ -305,7 +307,7 @@ else
         autocmd BufRead *.sh nmap <F7> :w !sh %<CR>
         autocmd FileType cpp nmap <F7> :make<CR>
         autocmd FileType c nmap <F7> :make<CR>
-        autocmd FileType go nmap <F7> :go build<CR>
+        autocmd FileType go nmap <F7> :!go build<CR>
 
         :nmap <F11> :Gstatus <CR> :colorscheme industry<CR>
     endif
@@ -391,17 +393,19 @@ set wildmenu
 nnoremap <F10> <ESC>:TlistToggle<cr><C-W><C-W>
 "nmap <silent> <F11> <Plug>ToggleProject
 nnoremap <F12> <ESC>:NERDTreeToggle<cr>
-:map <M-=> <ESC>:NERDTreeToggle<cr>
+:map <M-=> <ESC>:NERDTreeToggle<cr> 
 :nmap <F3> :tabnext<cr>
 :nmap <F2> :tabprev<cr>
 
 " add new key map
 let mapleader='b'
 :nmap <Leader>- :Gstatus <CR> :colorscheme industry<CR>
-:nmap <Leader>= <ESC>:NERDTreeToggle<cr>
+":nmap <Leader>= <ESC>:NERDTreeToggle<cr>
+:nmap <Leader>= <ESC>:NERDTreeToggle<cr>  :TagbarToggle <CR>
 :nmap <Leader>3 :tabnext<cr>
 :nmap <Leader>2 :tabprev<cr>
 :nmap <Leader>6 :CMake<CR>
+:nmap <Leader>w <C-w><C-w>
 autocmd BufRead *.py nmap <Leader>7 :!python %<CR>
 autocmd BufRead *.sh nmap <Leader>7 :w !sh %<CR>
 autocmd FileType cpp nmap <Leader>7 :make<CR>
@@ -481,3 +485,46 @@ if &diff
 endif
 
 command Todo noautocmd vimgrep /TODO\|FIXME/j **.* | cw
+"
+"function! CloseSomething()
+"  if winnr("$") == 1 && tabpagenr("$") > 1 && tabpagenr() > 1 && tabpagenr() < tabpagenr("$")
+"    tabclose | tabprev
+"  else
+"    q
+"  endif
+"endfunction
+":nmap <Leader>x :call CloseSomething()<CR>
+
+" vim-go setting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
+let g:tagbar_vertical = 25
