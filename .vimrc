@@ -27,7 +27,6 @@ Plugin 'gmarik/vundle'
 " The following are examples of different formats supported.
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
-"Plugin 'tpope/vim-fugitive'
 "Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'tpope/vim-rails.git'
 "" The sparkup vim script is in a subdirectory of this repo called vim.
@@ -59,7 +58,8 @@ filetype plugin indent on     " required
 Plugin 'The-NERD-tree'
 "Plugin 'Pydiction'
 Plugin 'vhdirk/vim-cmake'
-Plugin 'https://github.com/vim-scripts/fugitive.vim.git'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'https://github.com/vim-scripts/fugitive.vim.git'
 "Plugin 'https://github.com/tsaleh/vim-supertab.git'
 Plugin 'snipMate'
 Plugin 'EasyMotion'
@@ -76,6 +76,7 @@ Plugin 'fatih/vim-go'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'buoto/gotests-vim'
 Plugin 'dracula/vim'
+Plugin 'rbong/vim-flog'
 
 let g:EasyMotion_leader_key = ','
 
@@ -327,9 +328,9 @@ endif
 :set nowrap                         " not chang the longer line to the second line
 :set hlsearch                       " high light search
 :syntax enable                      " enable high light of language supporting
-":colorscheme desert                 " color scheme -- peachpuff
+:colorscheme desert                 " color scheme -- peachpuff
 ":colorscheme ron                    " color scheme -- peachpuff
-:color dracula
+":color dracula
 :set autoread                       " auto reload
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -527,4 +528,12 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
     \ }
-let g:tagbar_vertical = 25
+let g:tagbar_vertical = 15
+
+autocmd FileType go nmap <silent> <Leader>d <Plug>(go-def-tab)
+
+set diffopt+=vertical
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_metalinter_autosave = 1
+let g:go_fmt_command = "goimports"
