@@ -41,7 +41,7 @@ Plugin 'gmarik/vundle'
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " ...
 
-filetype plugin indent on     " required
+"filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -77,6 +77,9 @@ Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'buoto/gotests-vim'
 Plugin 'dracula/vim'
 Plugin 'rbong/vim-flog'
+Plugin 'jceb/vim-orgmode'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 let g:EasyMotion_leader_key = ','
 
@@ -311,6 +314,7 @@ else
         autocmd FileType go nmap <F7> :!go build<CR>
 
         :nmap <F11> :Gstatus <CR> :colorscheme industry<CR>
+        :helptags ~/.vim/doc
     endif
 endif
 
@@ -444,13 +448,13 @@ endfunction
 au BufEnter /* call LoadCscope()
 
 " set copy to clipboard
-set clipboard=unnamed
+set clipboard+=unnamed
 
 "folding
 "set foldenable 
 "set foldmethod=syntax 
-"set foldcolumn=0 
-"nnoremap @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
+"set foldcolumn=0
+"nnoremap @ ((foldclosed(line('.')) < 0) ? 'zc' : 'zo')
 
 " s: Find this C symbol
 nnoremap  <F8>s :call cscope#find('s', expand('<cword>'))<CR>
@@ -535,5 +539,11 @@ autocmd FileType go nmap <silent> <Leader>d <Plug>(go-def-tab)
 set diffopt+=vertical
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-let g:go_metalinter_autosave = 1
+"let g:go_metalinter_autosave = 1
 let g:go_fmt_command = "goimports"
+
+syntax on
+filetype plugin on
+let g:org_agenda_files=['~/org/index.org']
+let g:installdir='~/org-mode'
+vmap <Leader>y :w !~/.iterm2/it2copy<CR>
